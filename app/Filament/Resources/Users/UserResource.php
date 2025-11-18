@@ -17,12 +17,13 @@ use Filament\Tables\Table;
 class UserResource extends Resource
 {
     protected static ?string $model = User::class;
-
+    protected static ?string $navigationLabel = 'Empleados';
     protected static string|BackedEnum|null $navigationIcon = Heroicon::OutlinedRectangleStack;
 
     public static function form(Schema $schema): Schema
     {
-        return UserForm::configure($schema);
+        return UserForm::configure($schema)
+            ->columns(1);
     }
 
     public static function table(Table $table): Table
