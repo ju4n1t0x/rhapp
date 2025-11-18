@@ -11,14 +11,15 @@ use App\Models\City;
 use BackedEnum;
 use Filament\Resources\Resource;
 use Filament\Schemas\Schema;
-use Filament\Support\Icons\Heroicon;
+use UnitEnum;
 use Filament\Tables\Table;
 
 class CityResource extends Resource
 {
     protected static ?string $model = City::class;
     protected static ?string $navigationLabel = 'Ciudades';
-    protected static string|BackedEnum|null $navigationIcon = Heroicon::OutlinedRectangleStack;
+    protected static string|BackedEnum|null $navigationIcon = 'bi-house-add';
+    protected static string | UnitEnum | null $navigationGroup = 'System Management';
 
     public static function form(Schema $schema): Schema
     {

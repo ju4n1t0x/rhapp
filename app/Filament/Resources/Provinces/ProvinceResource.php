@@ -11,14 +11,15 @@ use App\Models\Province;
 use BackedEnum;
 use Filament\Resources\Resource;
 use Filament\Schemas\Schema;
-use Filament\Support\Icons\Heroicon;
 use Filament\Tables\Table;
+use UnitEnum;
 
 class ProvinceResource extends Resource
 {
     protected static ?string $model = Province::class;
     protected static ?string $navigationLabel = 'Provincias';
-    protected static string|BackedEnum|null $navigationIcon = Heroicon::OutlinedRectangleStack;
+    protected static string | UnitEnum | null $navigationGroup = 'System Management';
+    protected static string|BackedEnum|null $navigationIcon = 'bi-building-fill-add';
 
     public static function form(Schema $schema): Schema
     {
