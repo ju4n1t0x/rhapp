@@ -19,6 +19,7 @@ class ProvinceResource extends Resource
     protected static ?string $model = Province::class;
     protected static ?string $navigationLabel = 'Provincias';
     protected static string | UnitEnum | null $navigationGroup = 'System Management';
+    protected static ?int $navigationSort = 2;
     protected static string|BackedEnum|null $navigationIcon = 'bi-building-fill-add';
 
     public static function form(Schema $schema): Schema

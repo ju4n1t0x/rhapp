@@ -19,6 +19,7 @@ class CityResource extends Resource
     protected static ?string $model = City::class;
     protected static ?string $navigationLabel = 'Ciudades';
     protected static string|BackedEnum|null $navigationIcon = 'bi-house-add';
+    protected static ?int $navigationSort = 3;
     protected static string | UnitEnum | null $navigationGroup = 'System Management';
 
     public static function form(Schema $schema): Schema

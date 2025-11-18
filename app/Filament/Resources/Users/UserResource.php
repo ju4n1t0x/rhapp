@@ -11,7 +11,7 @@ use App\Models\User;
 use BackedEnum;
 use Filament\Resources\Resource;
 use Filament\Schemas\Schema;
-use Filament\Support\Icons\Heroicon;
+use UnitEnum;
 use Filament\Tables\Table;
 
 class UserResource extends Resource
@@ -19,6 +19,7 @@ class UserResource extends Resource
     protected static ?string $model = User::class;
     protected static ?string $navigationLabel = 'Empleados';
     protected static string|BackedEnum|null $navigationIcon = 'jam-users';
+    protected static string | UnitEnum | null $navigationGroup = 'Administracion de empleados';
 
     public static function form(Schema $schema): Schema
     {
