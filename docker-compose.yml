@@ -19,7 +19,7 @@ services:
     build:
       context: .
       dockerfile: docker/app/Dockerfile.app
-    image: rhapp
+    image: rhapp:latest
     container_name: rhapp
     restart: unless-stopped
     env_file:

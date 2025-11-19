@@ -1,7 +1,9 @@
-FROM rhapp:latest
+FROM php:8.3-fpm
 
 WORKDIR /var/www/html
 
 COPY . .
-COPY --from=composer:latest /usr/bin/composer /usr/bin/composer
-RUN composer install --no-interaction --prefer-dist --optimize-autoloader
+
+RUN docker-php-ext-install pdo_mysql
+
+CMD ["php", "artisan", "migrate", "--force"]
