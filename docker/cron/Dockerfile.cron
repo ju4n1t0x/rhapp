@@ -1,0 +1,13 @@
+FROM rhapp:latest
+
+WORKDIR /var/www/html
+
+COPY . .
+
+RUN apt-get update && apt-get install -y cron
+
+RUN echo "* * * * * cd /var/www/html && php artisan schedule:run >> /dev/null 2>&1" > /etc/cron.d/laravel-cron
+RUN chmod 0644 /etc/cron.d/laravel-cron
+RUN crontab /etc/cron.d/laravel-cron
+
+CMD ["cron", "-f"]

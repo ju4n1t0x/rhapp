@@ -22,3 +22,14 @@
 Homestead.json
 Homestead.yaml
 Thumbs.db
+# Archivo .gitignore
+# ... otras reglas ...
+
+# Variables de entorno sensibles
+.env
+.env.docker
+.env.local
+.env.production
+
+# Datos de Docker
+db_data/
