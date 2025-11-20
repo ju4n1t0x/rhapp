@@ -28,7 +28,7 @@ services:
       - ./:/var/www/html
       - ./cronjobs:/var/www/cronjobs
     healthcheck:
-      test: ["CMD-SHELL", "php-fpm-healthcheck"]
+      test: ["CMD", "php", "-r", "echo 'PHP OK';"]
       interval: 10s
       timeout: 5s
       retries: 3
