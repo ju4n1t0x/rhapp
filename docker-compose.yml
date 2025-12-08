@@ -22,11 +22,10 @@ services:
     image: rhapp:latest
     container_name: rhapp
     restart: unless-stopped
-    env_file:
-      - .env.docker
     volumes:
       - ./:/var/www/html
       - ./cronjobs:/var/www/cronjobs
+      - node_modules:/var/www/html/node_modules
     healthcheck:
       test: ["CMD", "php", "-r", "echo 'PHP OK';"]
       interval: 10s
@@ -116,6 +115,7 @@ services:
 # ============================
 volumes:
   db_data:
+  node_modules:
 
 
 
