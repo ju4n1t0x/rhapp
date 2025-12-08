@@ -1,3 +1,5 @@
+Sasia Juan Ignacio - Evi 2025
+
 # RHAPP
 
 Aplicación de gestión administrativa empresarial, control de empleados, vacaciones, fichajes y sistema de tickets.
@@ -12,23 +14,18 @@ Aplicación de gestión administrativa empresarial, control de empleados, vacaci
 
 ### Pasos para levantar el proyecto
 
-1. **Clonar el repositorio**
-   ```bash
-   git clone <url-del-repositorio>
-   cd rhapp
-   ```
 
-2. **Construir las imágenes**
+1. **Construir las imágenes**
    ```bash
    docker compose build
    ```
 
-3. **Levantar los contenedores**
+2. **Levantar los contenedores**
    ```bash
    docker compose up -d
    ```
 
-4. **Acceder a la aplicación**
+3. **Acceder a la aplicación**
    
    La aplicación estará disponible en:
    ```
