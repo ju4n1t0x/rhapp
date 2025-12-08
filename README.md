@@ -60,51 +60,23 @@ docker compose exec app php artisan migrate
 docker compose exec app php artisan make:controller ExampleController
 ```
 
-### Ver logs de los contenedores
-```bash
-# Logs de todos los servicios
-docker compose logs -f
 
-# Logs de un servicio específico
-docker compose logs -f app
-docker compose logs -f nginx
-docker compose logs -f db
-```
 
 ### Acceder a la base de datos
 
 La base de datos MySQL está expuesta en el puerto `3308`:
 
-```bash
+bash
 # Desde el host
 mysql -h 127.0.0.1 -P 3308 -u laravel -p
 # Password: 1234
-```
+
 
 O directamente desde el contenedor:
-```bash
+bash
 docker compose exec db mysql -u laravel -p laravel
-```
 
-### Limpiar caché de Laravel
-```bash
-docker compose exec app php artisan cache:clear
-docker compose exec app php artisan config:clear
-docker compose exec app php artisan route:clear
-docker compose exec app php artisan view:clear
-```
 
-### Detener los contenedores
-```bash
-docker compose down
-```
-
-### Reconstruir desde cero (limpiando volúmenes y base de datos)
-```bash
-docker compose down -v
-docker compose build --no-cache
-docker compose up -d
-```
 
 ---
 
@@ -231,38 +203,6 @@ healthcheck:
 - Inicio confiable y predecible
 
 ---
-
-## 🐛 Troubleshooting
-
-### La aplicación no arranca (error 500)
-```bash
-# Verificar logs
-docker compose logs app
-
-# Limpiar caché de Laravel
-docker compose exec app php artisan config:clear
-docker compose exec app php artisan cache:clear
-```
-
-### Error de conexión a base de datos
-```bash
-# Verificar que el contenedor de MySQL está corriendo
-docker compose ps
-
-# Revisar logs de MySQL
-docker compose logs db
-
-# Verificar healthcheck
-docker compose exec db mysqladmin ping -h localhost
-```
-
-### Problemas con node_modules
-```bash
-# Eliminar volumen y recrear
-docker compose down -v
-docker compose build app --no-cache
-docker compose up -d
-```
 
 ---
 
